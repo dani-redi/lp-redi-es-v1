@@ -1,6 +1,6 @@
-
 import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { ScrollSection } from './ScrollSection';
+import { handleSignupClick } from '../utils/url';
 
 const SimpleWay: React.FC = () => {
   const baseUrl = '/plataforma-de-ventas/';
@@ -95,17 +95,16 @@ const SimpleWay: React.FC = () => {
               <button
                 onClick={() => scroll('left')}
                 disabled={!canScrollLeft}
-                className={`absolute left-0 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md transition-all ${
-                  canScrollLeft 
-                    ? 'opacity-100 hover:scale-110' 
+                className={`absolute left-0 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md transition-all ${canScrollLeft
+                    ? 'opacity-100 hover:scale-110'
                     : 'opacity-50 cursor-not-allowed'
-                }`}
+                  }`}
               >
                 <span className="material-symbols-rounded text-[#b539e6] text-xl">chevron_left</span>
               </button>
 
               {/* Carousel Container */}
-              <div 
+              <div
                 ref={carouselRef}
                 className="flex overflow-x-auto scrollbar-hide gap-3 px-12 py-2 scroll-smooth"
                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
@@ -115,18 +114,16 @@ const SimpleWay: React.FC = () => {
                     key={item.label}
                     type="button"
                     onClick={() => setSelectedIndex(index)}
-                    className={`font-semibold text-xs px-3 py-2 rounded-xl border shadow-sm transition-all flex flex-col items-center gap-1 w-24 flex-shrink-0 ${
-                      index === selectedIndex
+                    className={`font-semibold text-xs px-3 py-2 rounded-xl border shadow-sm transition-all flex flex-col items-center gap-1 w-24 flex-shrink-0 ${index === selectedIndex
                         ? 'bg-secondary/10 border-secondary/40 text-slate-900'
                         : 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700'
-                    }`}
+                      }`}
                   >
                     <span
-                      className={`w-8 h-8 rounded-xl border flex items-center justify-center transition-all ${
-                        index === selectedIndex
+                      className={`w-8 h-8 rounded-xl border flex items-center justify-center transition-all ${index === selectedIndex
                           ? 'bg-secondary text-white border-secondary'
                           : 'bg-white border-slate-200 text-secondary'
-                      }`}
+                        }`}
                     >
                       <span className="material-symbols-rounded text-[18px]">{item.icon}</span>
                     </span>
@@ -139,11 +136,10 @@ const SimpleWay: React.FC = () => {
               <button
                 onClick={() => scroll('right')}
                 disabled={!canScrollRight}
-                className={`absolute right-0 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md transition-all ${
-                  canScrollRight 
-                    ? 'opacity-100 hover:scale-110' 
+                className={`absolute right-0 z-10 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-md transition-all ${canScrollRight
+                    ? 'opacity-100 hover:scale-110'
                     : 'opacity-50 cursor-not-allowed'
-                }`}
+                  }`}
               >
                 <span className="material-symbols-rounded text-[#b539e6] text-xl">chevron_right</span>
               </button>
@@ -158,18 +154,16 @@ const SimpleWay: React.FC = () => {
               key={item.label}
               type="button"
               onClick={() => setSelectedIndex(index)}
-              className={`font-semibold text-xs md:text-sm px-3 md:px-4 py-2 rounded-xl border shadow-sm transition-all flex flex-col items-center gap-1 w-24 md:w-28 ${
-                index === selectedIndex
+              className={`font-semibold text-xs md:text-sm px-3 md:px-4 py-2 rounded-xl border shadow-sm transition-all flex flex-col items-center gap-1 w-24 md:w-28 ${index === selectedIndex
                   ? 'bg-secondary/10 border-secondary/40 text-slate-900'
                   : 'bg-slate-50 hover:bg-slate-100 border-slate-200 text-slate-700'
-              }`}
+                }`}
             >
               <span
-                className={`w-8 h-8 rounded-xl border flex items-center justify-center transition-all ${
-                  index === selectedIndex
+                className={`w-8 h-8 rounded-xl border flex items-center justify-center transition-all ${index === selectedIndex
                     ? 'bg-secondary text-white border-secondary'
                     : 'bg-white border-slate-200 text-secondary'
-                }`}
+                  }`}
               >
                 <span className="material-symbols-rounded text-[18px]">{item.icon}</span>
               </span>
@@ -182,15 +176,14 @@ const SimpleWay: React.FC = () => {
           <img
             src={features[displayIndex].image}
             alt="Dashboard Redi"
-            className={`w-full rounded-xl border border-slate-100 bg-white object-cover transition-opacity duration-500 ${
-              isFading ? 'opacity-0' : 'opacity-100'
-            }`}
+            className={`w-full rounded-xl border border-slate-100 bg-white object-cover transition-opacity duration-500 ${isFading ? 'opacity-0' : 'opacity-100'
+              }`}
           />
         </ScrollSection>
 
         <ScrollSection stagger={3} className="mt-6 flex justify-center">
-          <button 
-            onClick={() => window.open('https://app.rediredi.com/es/signup?'+window.location.search, '_blank')}
+          <button
+            onClick={handleSignupClick}
             className="bg-[#b539e6] hover:bg-[#b539e6]/90 text-white px-6 py-2.5 rounded-full font-semibold text-sm md:text-base transition-all shadow-lg shadow-[#b539e6]/20 hover:scale-105"
           >
             Comienza gratis

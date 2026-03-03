@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ScrollSection } from './ScrollSection';
+import { handleSignupClick } from '../utils/url';
 
 const Hero: React.FC = () => {
   const baseUrl = '/plataforma-de-ventas/';
@@ -82,7 +83,7 @@ const Hero: React.FC = () => {
                       >
                         <span className="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-secondary/10 text-secondary text-[10px]">✓</span>
                         {item}
-                        
+
                         {/* Tooltip */}
                         {hoveredItem === `${item}-${index}` && (
                           <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-4 py-2 bg-slate-900 text-white text-xs rounded-lg shadow-lg z-[200] max-w-[320px] w-[20rem] text-left leading-snug whitespace-normal" style={{ pointerEvents: 'none' }}>
@@ -106,7 +107,7 @@ const Hero: React.FC = () => {
                   >
                     <span className="inline-flex items-center justify-center w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-secondary/10 text-secondary text-[10px] md:text-xs">✓</span>
                     {item}
-                    
+
                     {/* Tooltip */}
                     {hoveredItem === item && (
                       <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-2 bg-slate-900 text-white text-xs rounded-lg shadow-lg whitespace-nowrap z-50">
@@ -123,8 +124,8 @@ const Hero: React.FC = () => {
 
         {/* CTA Button */}
         <ScrollSection stagger={1.5} className="flex justify-center mb-8 md:mb-10">
-          <button 
-            onClick={() => window.open('https://app.rediredi.com/es/signup?'+window.location.search, '_blank')}
+          <button
+            onClick={handleSignupClick}
             className="bg-[#b539e6] hover:bg-[#b539e6]/90 text-white px-8 py-3 rounded-full font-semibold text-sm md:text-base transition-all shadow-lg shadow-[#b539e6]/20 hover:scale-105"
           >
             Comienza gratis
@@ -134,9 +135,9 @@ const Hero: React.FC = () => {
         {/* Image + Text Aside */}
         <ScrollSection stagger={2} className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-1 md:gap-2 mb-4 md:mb-2 bg-white p-6 sm:p-4 md:p-2 rounded-xl md:rounded-2xl border border-slate-100 shadow-xl shadow-[#b539e6]/5">
           <div className="w-full md:w-72 md:text-left text-center md:pl-8 md:py-4">
-            <img 
-              src={`${baseUrl}redi-ia.gif`} 
-              alt="Redi IA em ação" 
+            <img
+              src={`${baseUrl}redi-ia.gif`}
+              alt="Redi IA em ação"
               className="rounded-xl md:rounded-2xl w-1/3 md:w-2/3 object-cover mx-auto md:mx-0"
             />
           </div>
@@ -152,9 +153,9 @@ const Hero: React.FC = () => {
 
         {/* Meta Business Partners Badge */}
         <ScrollSection stagger={3} className="flex justify-center mb-3">
-          <img 
-            src={`${baseUrl}meta-partner.svg`} 
-            alt="RediRedi - Meta Business Partners" 
+          <img
+            src={`${baseUrl}meta-partner.svg`}
+            alt="RediRedi - Meta Business Partners"
             className="h-12 md:h-12 w-auto"
           />
         </ScrollSection>

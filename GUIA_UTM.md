@@ -7,7 +7,7 @@ Este documento detalha a implementação da lógica de injeção automática de 
 Originalmente, os diversos botões de "Comece grátis" na página redirecionavam o usuário utilizando a chamada direta estática abaixo:
 
 ```tsx
-window.open('https://app.rediredi.com/pt-BR/signup?' + window.location.search, '_blank')
+window.open('https://app.rediredi.com/es/signup?' + window.location.search, '_blank')
 ```
 
 **Problemas com a abordagem antiga:**
@@ -29,7 +29,7 @@ O processamento lógico mora de forma contida na raiz do sistema:
 **Arquivo utilitário: `utils/url.ts`**
 ```typescript
 export const handleSignupClick = () => {
-  const url = new URL('https://app.rediredi.com/pt-BR/signup');
+  const url = new URL('https://app.rediredi.com/es/signup');
   const params = new URLSearchParams(window.location.search);
   
   let hasUtm = false;
